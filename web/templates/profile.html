@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}设置{% endblock %}
+{% block body %}
+<ul class="list-group">
+    {% if items %}
+    {% for name,value in items %}
+    <li class="list-group-item">
+        <span class="info-name">{{name}}:</span>
+        <span class="info-value">{{value}}</span>
+    </li>
+    {% endfor %}
+    {% endif %}
+    <li class="list-group-item">
+        <a href="/edit/password">更改密码</a>
+    </li>
+</ul>
+{% endblock %}

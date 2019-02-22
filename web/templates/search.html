@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}搜索{% endblock %}
+{% block body %}
+<div>
+    <form action="/search" method="get">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">消息发送人</span>
+            </div>
+            <input type="text" class="form-control" name="keyword" id="keyword">
+            <div class="input-group-append">
+                <input type="submit" class="btn btn-primary" value="搜索">
+            </div>
+        </div>
+    </form>
+
+    {% if results or results==[] %}
+    <div class="results-container">
+        <span>搜索得到{{results|length}}个结果</span>
+        <div>
+            {% for result in results %}
+            <div class="message-box">
+                <span class="msg-author">{{result["author"]}}</span>{% if result["qq"] %}<span class="msg-author-qq">({{result["qq"]}})</span>{% endif %}
+                <span class="msg-time">{{result["time"]}}</span>&nbsp;&nbsp;<span class="msg-group-name">({{result["group"]}})</span><br>
+                <span class="msg-content">{{result["content"]}}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

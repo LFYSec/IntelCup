@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}查看{% endblock %}
+{% block body %}
+<div style="font-size: 25px;">
+    <table style="width: 100%;" class="table">
+        {%- for row in dates|batch(3,None) %}
+        <tr>
+            {%- for date in row %}
+            <td class="date-table-cell">
+                {%- if date %}
+                <a href="/view/{{date}}">{{date}}</a>
+                {%- else %}
+                &nbsp;
+                {%- endif %}
+            </td>
+            {%- endfor %}
+        </tr>
+        {%- endfor %}
+    </table>
+</div>
+{% endblock %}

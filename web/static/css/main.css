@@ -1,0 +1,57 @@
+.nav-link {
+    color: white !important;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.user-icon {
+    margin-right: 10px;
+}
+
+.info-name{
+    font-weight: bold;
+}
+
+.message-box{
+    margin: 10px;
+}
+
+.msg-author{
+    font-weight:bold;
+}
+
+.msg-author-qq{
+    font-size: 75%;
+}
+
+.large-font{
+    font-size: 200%;
+}
+
+.date-table-cell{
+    text-align: center;
+    font-size: 25px;
+}
+
+.results-container{
+    margin-top: 15px;
+}
+
+.group-box{
+    margin-bottom: 40px;
+}

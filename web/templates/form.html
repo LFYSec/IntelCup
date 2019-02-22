@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<div style="width: 60%;margin: 0 auto;margin-top: 40px;">
+    <h1>{% block title %}{% endblock %}</h1>
+    {% if errors %}
+    <div>
+        {% for error in errors %}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if successes %}
+    <div>
+        {% for success in successes %}
+        <div class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form action="{% block target %}{% endblock %}" method="post" accept-charset="utf-8" {% block attrs %}{% endblock %}>
+        {{ csrf_field()|safe }}
+        {% block content %}{% endblock %}
+    </form>
+</div>
+{% endblock %}

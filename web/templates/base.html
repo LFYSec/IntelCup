@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-hans en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>iMsg - {% block title %}{% endblock %}</title>
+    <script src="/static/js/jquery-3.2.1.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">iMsg</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="/view">查看消息</a></li>
+        <li class="nav-item"><a class="nav-link" href="/upload">上传消息记录</a></li>
+        <li class="nav-item"><a class="nav-link" href="/search">搜索</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        {% if 'user' in session %}
+        <li class="nav-item">
+            <a href="/profile" class="nav-link">
+                <img class="user-icon" src="/static/img/user.png" width="24px">{{session["user"]["username"]}}
+            </a>
+        </li>
+        <li class="nav-item"><a href="/logout" class="nav-link">退出</a></li>
+        {% else %}
+        <li class="nav-item"><a href="/login" class="nav-link">登录</a></li>
+        <li class="nav-item"><a href="/register" class="nav-link">注册</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>
